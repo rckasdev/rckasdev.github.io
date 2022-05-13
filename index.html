@@ -20,22 +20,25 @@
             
         $( document ).ready(function() {
             console.log( "ready!" );
-            window.Telegram.WebApp.MainButton.setParams({text: "Кнопка2"});
+
+
+            let searchParams = new URLSearchParams(window.location.search)
+            data = searchParams.get('data');
+            var randomGuid = searchParams.get('randomGuid');
+            data = randomGuid;
+            console.log(data);
+            console.log(randomGuid);
+            
+            window.Telegram.WebApp.MainButton.setParams({text: randomGuid});
             window.Telegram.WebApp.MainButton.show();
             window.Telegram.WebApp.MainButton.enable();
             window.Telegram.WebApp.MainButton.showProgress(true);
             window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
             window.Telegram.WebApp.ready();
-
-            let searchParams = new URLSearchParams(window.location.search)
-            data = searchParams.get('data');
-            var randomGuid = searchParams.get('randomGuid');
-            console.log(data);
-            console.log(randomGuid);
         });
             
         function OnClickMeg(){
-            window.Telegram.WebApp.sendData('Hello world');
+            window.Telegram.WebApp.sendData(data);
             window.Telegram.WebApp.close();
         }
             
