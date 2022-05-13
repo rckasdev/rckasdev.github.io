@@ -32,6 +32,7 @@
             return false;
         };   
             
+        var data = '';
             
         $( document ).ready(function() {
             console.log( "ready!" );
@@ -41,6 +42,11 @@
             window.Telegram.WebApp.MainButton.showProgress(true);
             window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
             window.Telegram.WebApp.ready();
+
+            data = getUrlParameter('data');
+            var randomGuid = getUrlParameter('randomGuid');
+            console.log(data);
+            console.log(randomGuid);
         });
             
         function OnClickMeg(){
