@@ -20,6 +20,8 @@
             console.log( "ready!" );
             window.Telegram.WebApp.MainButton.setParams({text: "Кнопка2"});
             window.Telegram.WebApp.MainButton.show();
+            window.Telegram.WebApp.MainButton.enable();
+            window.Telegram.WebApp.MainButton.showProgress(true);
             window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
             window.Telegram.WebApp.ready();
         });
