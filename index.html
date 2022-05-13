@@ -18,7 +18,8 @@
         <script>
         $( document ).ready(function() {
             console.log( "ready!" );
-            window.Telegram.WebApp.MainButton.setParams({is_visible: true, text: "Кнопка1"});
+            window.Telegram.WebApp.MainButton.setParams({text: "Кнопка1"});
+            window.Telegram.WebApp.MainButton.show();
             window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
             window.Telegram.WebApp.ready();
         });
