@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>Students</title>
+        <script>
+            window.onload = function funcLoad(){
+                console.log('Script will load now...');
+                const params = new URLSearchParams(window.location.search);
+                    for (const param of params) {
+                        console.log(param[0] + ": " + param[1]);
+                    }
+
+
+
+                element = document.getElementById('');
+                //document.body.style.setProperty('',window.Telegram.WebApp.themeParams.);
+
+                window.Telegram.WebApp.MainButton.isActive = false;
+                window.Telegram.WebApp.MainButton.hide()
+                //window.Telegram.WebApp.onEvent('mainButtonClicked', sendBigData());
+                window.Telegram.WebApp.MainButton.isActive = true;
+                window.Telegram.WebApp.MainButton.show()
+            }
+
+            window.Telegram.WebApp.MainButton.setParams({is_visible: true});
+            //window.Telegram.WebApp.onEvent('mainButtonClicked', function(){window.Telegram.WebApp.sendData('sended data')});
+            //window.Telegram.WebApp.MainButton.onclick = window.Telegram.WebApp.sendData('sended data');
+            function sendBigData(){
+                str = 'Первые впечатления Переночевав в гостинице в Гуаякиле, мы сели к агенту в машину и поехали на судно в Пуэрто Боливар. Доехали вопреки ожиданиям быстро, примерно за 3-4 часа. Погода была пасмурная и даже не смотря на то, что мы находимся недалеко от экватора, было прохладно. Почти все время, пока мы ехали, по обе стороны дороги были банановые плантации, но все равно в голове не укладывается: эти бананы грузят на суда в нескольких портах Эквадора десятками тысяч тонн каждый день, круглый год. Это ж несчастные бананы должны расти быстрее чем грибы.Дороги.Дороги в Эквадоре практически идеальные, хотя населенные пункты выглядят очень бедно. На дорогах много интересных машин, например очень много грузовиков - древних Фордов, которые я никогда раньше не видел. А еще несколько раз на глаза попадались старенькие Жигули :) А еще если кого-то обгоняешь и есть встречная машина, она обязательно включает фары. На больших машинах - грузовиках и автобусах, обязательно красуется местный тюнинг: машины разукрашенные, либо в наклейках, и обязательно везде огромное множество светодиодов, как будто новогодние елки едут и переливаются всеми цветами.';
+                window.Telegram.WebApp.sendData(str);
+            }
+
+            function replaceColor() {
+                document.body.style.setProperty('background-color', window.Telegram.WebApp.themeParams.bg_color);
+                document.body.style.setProperty('color', window.Telegram.WebApp.themeParams.text_color);
+
+                var links = document.getElementsByTagName("a");
+                for(var i=0;i<links.length;i++)
+                {
+                    if(links[i].href)
+                    {
+                        links[i].style.color = window.Telegram.WebApp.themeParams.link_color;
+                    }
+                }
+
+                var buttons = document.getElementsByTagName('button');
+                for(var i=0;i<buttons.length;i++)
+                {
+                    if(buttons[i].href)
+                    {
+                        buttons[i].style.backgroundColor = window.Telegram.WebApp.themeParams.button_color;
+                        buttons[i].style.color = window.Telegram.WebApp.themeParams.button_text_color;
+                    }
+                }
+            }
+            function checkFunc(element){
+                if (element.tagName == "INPUT"){
+                    element.checked = !element.checked;
+                } else {
+                    var el = element.children[1].children[0];
+                    el.checked = !el.checked;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="content">
+            <div class="content__list content_list_border">
+                <li onclick="checkFunc(this)"><div>Иванов Иван Иванович</div><div class="content__list-input"><input type="checkbox" onclick="checkFunc(this)"/></div></li>
+                <li onclick="checkFunc(this)"><div>Сергов Сергей Сергеевич</div><div class="content__list-input"><input type="checkbox" onclick="checkFunc(this)"/></div></li>
+                <li onclick="checkFunc(this)"><div>Дом Доминик Доминикович</div><div class="content__list-input"><input type="checkbox" onclick="checkFunc(this)"/></div></li>
+                <li onclick="checkFunc(this)"><div>Манулов Манул Манулович</div><div class="content__list-input"><input type="checkbox" onclick="checkFunc(this)"/></div></li>
+                <li onclick="checkFunc(this)"><div>Крыков Крык Крыкович</div><div class="content__list-input"><input type="checkbox" onclick="checkFunc(this)"/></div></li>
+                <li onclick="checkFunc(this)"><div>Шлепов Шлепа Шлепович</div><div class="content__list-input"><input type="checkbox" onclick="checkFunc(this)"/></div></li>
+                <button type="submit" id="SubmitButton" onclick="sendBigData()">Отправить</button>
+            </div>
+        </div>
+    </body>
+</html>
