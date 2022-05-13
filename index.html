@@ -20,6 +20,7 @@
             console.log( "ready!" );
             window.Telegram.WebApp.MainButton.setParams({is_visible: true, text: "Кнопка1"});
             window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
+            window.Telegram.WebApp.ready();
         });
             
         function OnClickMeg(){
