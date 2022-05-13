@@ -19,7 +19,12 @@
         $( document ).ready(function() {
             console.log( "ready!" );
             window.Telegram.WebApp.MainButton.setParams({is_visible: true, text: "Кнопка"});
+            window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
         });
+            
+        function OnClickMeg(){
+            window.Telegram.WebApp.sendData('Hello world');
+        }
         </script>
     </body>
 
