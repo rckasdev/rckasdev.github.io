@@ -15,23 +15,7 @@
     <body>
     1
         
-        <script>
-        var getUrlParameter = function getUrlParameter(sParam) {
-            var sPageURL = window.location.search.substring(1),
-                sURLVariables = sPageURL.split('&'),
-                sParameterName,
-                i;
-
-            for (i = 0; i < sURLVariables.length; i++) {
-                sParameterName = sURLVariables[i].split('=');
-
-                if (sParameterName[0] === sParam) {
-                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-                }
-            }
-            return false;
-        };   
-            
+        <script>    
         var data = '';
             
         $( document ).ready(function() {
@@ -43,8 +27,9 @@
             window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
             window.Telegram.WebApp.ready();
 
-            data = getUrlParameter('data');
-            var randomGuid = getUrlParameter('randomGuid');
+            let searchParams = new URLSearchParams(window.location.search)
+            data = searchParams.get('data');
+            var randomGuid = searchParams.get('randomGuid');
             console.log(data);
             console.log(randomGuid);
         });
