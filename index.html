@@ -24,6 +24,8 @@
 
             let searchParams = new URLSearchParams(window.location.search)
             data = searchParams.get('data');
+            data = data.replaceAll("'",'"')
+            jsData = JSON.parse(data)
             var randomGuid = searchParams.get('randomGuid');
             console.log(data);
             console.log(randomGuid);
