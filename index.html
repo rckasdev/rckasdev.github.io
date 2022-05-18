@@ -28,8 +28,9 @@
             data = data.replaceAll("'",'"')
             jsData = JSON.parse(data)
             var randomGuid = searchParams.get('randomGuid');
-            console.log(data);
+            console.log(jsData);
             console.log(randomGuid);
+            $('.handler').append( jsData )
             
             window.Telegram.WebApp.MainButton.setParams({text: randomGuid});
             window.Telegram.WebApp.MainButton.show();
