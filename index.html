@@ -33,6 +33,7 @@
         var jsData;
             
         $( document ).ready(function() {
+            ClickCheckBox();
             console.log( "ready!" );
 
             DataHandler()
@@ -93,6 +94,14 @@
         {
             let row = `<span class="group__value" data-id="${id}">${name}</span>`
             $(".group").append(row);
+        }
+
+        function ClickCheckBox()
+        {
+            $('.student__item').click(function(){
+                var check = $(this).find("input:checkbox").prop('checked')
+                $(this).find("input:checkbox").prop('checked',!check)
+            });
         }
             
         </script>
