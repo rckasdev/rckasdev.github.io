@@ -68,7 +68,7 @@
         }
             
         function OnClickMeg(){
-            window.Telegram.WebApp.sendData('Result');
+            window.Telegram.WebApp.sendData(GetData());
             window.Telegram.WebApp.close();
         }
             
@@ -119,6 +119,24 @@
                     window.Telegram.WebApp.MainButton.hide();
                 }
             });
+        }
+
+        function GetData()
+        {
+            var obj = new Object();
+            obj.Group = jsData.Group
+            obj.Teacher = jsData.Teacher
+            obj.Subject = jsData.Subject
+
+            var students = [];
+
+            $("input:checked").each(function(){
+                students.push($(this).attr('id'))
+            });
+
+            obj.Students = students;
+
+            return JSON.stringify(obj);
         }
             
         </script>
