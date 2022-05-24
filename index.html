@@ -13,19 +13,21 @@
         <title>TEST2</title>
     </head>
     <body>
-        <div class='handler'></div>
-        <div class='checker'>
-        
-            <div>
-                <input type="checkbox" id="1" name="Самарин Илья Валерьевич">
-                <label for="Самарин Илья Валерьевич">Самарин Илья Валерьевич</label>
+        <div class="wrapper">
+            <div class="group">
+                <span class="group__header strong">Группа:</span>
             </div>
-            <div>
-                <input type="checkbox" id="2" name="Самарин Илья Валерьевич">
-                <label for="Самарин Илья Валерьевич">Самарин Илья Валерьевич</label>
+            <div class="subject">
+                <span class="subject__header strong">Предмет:</span>
             </div>
-            
+            <div class="teacher">
+                <span class="teacher__header strong">Преподаватель:</span>
+            </div>
+            <div class="student center">
+                <div class="student__header strong">Студенты</div>
+            </div>
         </div>
+
         <script>    
         var data = '';
         var jsData;
@@ -48,6 +50,7 @@
             window.Telegram.WebApp.MainButton.enable();
             window.Telegram.WebApp.MainButton.showProgress(true);
             window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
+            window.Telegram.WebApp.expand();
             window.Telegram.WebApp.ready();
         });
            
@@ -57,8 +60,57 @@
             window.Telegram.WebApp.close();
         }
             
+
+        function CreateStudent(id,fullName)
+        {
+            let row = `<div class="student__item"><input type="checkbox" id="${id}" name="${fullName}"><label for="${id}">${fullName}</label></div>`
+            $(".student").append(row);
+        }
+
+        function CreateSubject(id,name)
+        {
+            let row = `<span class="subject__value" data-id="${id}">${name}</span>`
+            $(".subject").append(row);
+        }
+
+        function CreateTeacher(id,fullName)
+        {
+            let row = `<span class="teacher__value" data-id="${id}">${fullName}</span>`
+            $(".teacher").append(row);
+        }
+
+        function CreateGroup(id,name)
+        {
+            let row = `<span class="group__value" data-id="${id}">${name}</span>`
+            $(".group").append(row);
+        }
             
         </script>
     </body>
 
 </html>
+
+
+<style>
+
+.student, .HeaderStudents {
+    
+}
+
+.Header{
+    
+}
+
+.wrapper{
+    padding: 5%;
+}
+
+.strong{
+    font-weight: bold;
+}
+
+.center{
+    text-align: center;
+}
+
+</style>
