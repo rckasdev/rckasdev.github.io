@@ -36,10 +36,8 @@
             console.log( "ready!" );
 
 
-            let searchParams = new URLSearchParams(window.location.search)
-            data = searchParams.get('data');
-            data = data.replaceAll("'",'"')
-            jsData = JSON.parse(data)
+            
+
             var randomGuid = searchParams.get('randomGuid');
             console.log(jsData);
             console.log(randomGuid);
@@ -54,6 +52,21 @@
             window.Telegram.WebApp.ready();
         });
            
+        function DataHandler()
+        {
+            let searchParams = new URLSearchParams(window.location.search)
+            data = searchParams.get('data');
+            data = data.replaceAll("'",'"')
+            jsData = JSON.parse(data)
+
+            CreateGroup(jsData.Group.Id, jsData.Group.Name)
+            CreateSubject(jsData.Subject.Id, jsData.Subject.Name)
+            CreateTeacher(jsData.Teacher.Id, jsData.Teacher.FullName)
+
+            for (const student of jsData.Students) {
+                CreateStudent(student.Id, student.FullName);
+            }
+        }
             
         function OnClickMeg(){
             window.Telegram.WebApp.sendData(jsData);
