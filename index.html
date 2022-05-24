@@ -35,15 +35,13 @@
         $( document ).ready(function() {
             console.log( "ready!" );
 
-
+            DataHandler()
             
 
-            var randomGuid = searchParams.get('randomGuid');
-            console.log(jsData);
-            console.log(randomGuid);
-            $('.handler').append( jsData )
+            //
+
             
-            window.Telegram.WebApp.MainButton.setParams({text: randomGuid});
+            window.Telegram.WebApp.MainButton.setParams({text: 'Сохранить'});
             window.Telegram.WebApp.MainButton.show();
             window.Telegram.WebApp.MainButton.enable();
             window.Telegram.WebApp.MainButton.showProgress(true);
@@ -55,9 +53,13 @@
         function DataHandler()
         {
             let searchParams = new URLSearchParams(window.location.search)
+            var randomGuid = searchParams.get('randomGuid');
             data = searchParams.get('data');
             data = data.replaceAll("'",'"')
             jsData = JSON.parse(data)
+
+            console.log(jsData);
+            console.log(randomGuid);
 
             CreateGroup(jsData.Group.Id, jsData.Group.Name)
             CreateSubject(jsData.Subject.Id, jsData.Subject.Name)
