@@ -100,7 +100,8 @@
 
         function ClickCheckBox()
         {
-            $('.student__item').click(function(){
+            $('.student__item').click(function(e){
+                console.log(event.target.type);
                 var check = $(this).find("input:checkbox").prop('checked')
                 $(this).find("input:checkbox").prop('checked',!check)
             });
