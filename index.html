@@ -68,8 +68,9 @@
         }
             
         function OnClickMeg(){
-            window.Telegram.WebApp.sendData('Result');
-            window.Telegram.WebApp.close();
+           // window.Telegram.WebApp.sendData('Result');
+            //window.Telegram.WebApp.close();
+            alert('Click')
         }
             
 
@@ -109,21 +110,6 @@
 
                 let isCheked = $("input:checked").length > 0;
                 console.log(isCheked);
-
-
-                setTimeout(function() { 
-                    if(isCheked)
-                    {
-                        console.log('showButton');
-                        window.Telegram.WebApp.MainButton.show();
-                    }
-                    else
-                    {
-                        console.log('hideButton');
-                        window.Telegram.WebApp.MainButton.hide();
-                    }
-                }, 500);
-            });
         }
             
         </script>
