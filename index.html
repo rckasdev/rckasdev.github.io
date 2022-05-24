@@ -100,9 +100,11 @@
         function ClickCheckBox()
         {
             $('.student__item').click(function(e){
-                if(event.target.type == 'checkbox')
+
+                if(event.target.type != 'checkbox')
                 {
-                    return;
+                    var check = $(this).find("input:checkbox").prop('checked')
+                    $(this).find("input:checkbox").prop('checked',!check)
                 }
 
                 let isCheked = $("input:checked").length > 0;
@@ -114,9 +116,6 @@
                 {
                     window.Telegram.WebApp.MainButton.hide();
                 }
-
-                var check = $(this).find("input:checkbox").prop('checked')
-                $(this).find("input:checkbox").prop('checked',!check)
             });
         }
             
