@@ -33,7 +33,7 @@
         var jsData;
             
         $( document ).ready(function() {
-            ClickCheckBox();
+
             console.log( "ready!" );
 
             DataHandler()
@@ -64,6 +64,8 @@
             for (const student of jsData.Students) {
                 CreateStudent(student.Id, student.FullName);
             }
+
+            ClickCheckBox();
         }
             
         function OnClickMeg(){
