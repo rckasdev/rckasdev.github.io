@@ -76,7 +76,7 @@
 
         function CreateStudent(id,fullName)
         {
-            let row = `<div class="student__item"><input type="checkbox" id="${id}" name="${fullName}"><label for="${id}">${fullName}</label></div>`
+            let row = `<div class="student__item"><input type="checkbox" id="${id}" name="${fullName}"><label>${fullName}</label></div>`
             $(".student").append(row);
         }
 
