@@ -39,7 +39,6 @@
             DataHandler()
             
             window.Telegram.WebApp.MainButton.setParams({text: 'Сохранить'});
-            window.Telegram.WebApp.MainButton.show();
             window.Telegram.WebApp.MainButton.enable();
             window.Telegram.WebApp.MainButton.onClick(OnClickMeg);
             window.Telegram.WebApp.expand();
@@ -69,9 +68,8 @@
         }
             
         function OnClickMeg(){
-           // window.Telegram.WebApp.sendData('Result');
-            //window.Telegram.WebApp.close();
-            alert('Click')
+            window.Telegram.WebApp.sendData('Result');
+            window.Telegram.WebApp.close();
         }
             
 
@@ -111,6 +109,15 @@
 
                 let isCheked = $("input:checked").length > 0;
                 console.log(isCheked);
+
+                if(isCheked)
+                {
+                    window.Telegram.WebApp.MainButton.show();
+                }
+                else
+                {
+                    window.Telegram.WebApp.MainButton.hide();
+                }
             });
         }
             
