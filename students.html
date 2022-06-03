@@ -60,6 +60,7 @@
             data = data.replaceAll("*3",'[')
             data = data.replaceAll("*4",']')
             data = data.replaceAll("_",' ')
+            data = data.replaceAll("*5",',')
             jsData = JSON.parse(data)
             
             $(".datajsValue").append(data);
