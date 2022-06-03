@@ -35,11 +35,30 @@
             $(".datajsValue").append(data);
 			$(".datajsGuid").append(randomGuid);
 			
-		}
+	}
+		
+	function hexToUtf8(s)
+	{
+	  return decodeURIComponent(
+	     s.replace(/\s+/g, '') // remove spaces
+	      .replace(/[0-9a-f]{2}/g, '%$&') // add '%' before each 2 characters
+	  );
+	}
+
+	const utf8encoder = new TextEncoder();
+
+	function utf8ToHex(s)
+	{
+	  const rb = utf8encoder.encode(s);
+	  let r = '';
+	  for (const b of rb) {
+	    r += ('0' + b.toString(16)).slice(-2);
+	  }
+	  return r;
+	}	
 		
 	</script>	
     </body>
-
 </html>
 
 <style>
