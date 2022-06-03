@@ -51,6 +51,11 @@
             var randomGuid = searchParams.get('randomGuid');
             data = searchParams.get('data');
             data = data.replaceAll("'",'"')
+            data = data.replaceAll("*1",'{')
+            data = data.replaceAll("*2",'}')
+            data = data.replaceAll("*3",'[')
+            data = data.replaceAll("*4",']')
+            data = data.replaceAll("_",' ')
             jsData = JSON.parse(data)
 
             console.log(jsData);
