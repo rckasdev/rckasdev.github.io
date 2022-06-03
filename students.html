@@ -16,7 +16,9 @@
 		
 		
 	<script>
-	       $( document ).ready(function() {
+	var data	
+		
+	$( document ).ready(function() {
 
             console.log( "ready!" );
 
@@ -24,11 +26,11 @@
         });
 		
 		
-		function DataHandler()
+	function DataHandler()
         {
             let searchParams = new URLSearchParams(window.location.search)
             var randomGuid = searchParams.get('randomGuid');
-			var data = searchParams.get('data');
+	    data = searchParams.get('data');
             
             $(".datajsValue").append(data);
 			$(".datajsGuid").append(randomGuid);
