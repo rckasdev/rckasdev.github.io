@@ -8,10 +8,34 @@
     </head>
     <body>
         <div class='dataJs'>
-            <div>ДатаX</div>
+            <div>Дата</div>
             <div class='datajsValue'></div>
+			<div class='datajsGuid'></div>
         </div>
+		
+		
+		
+	<script>
+	       $( document ).ready(function() {
 
+            console.log( "ready!" );
+
+            DataHandler()
+        });
+		
+		
+		function DataHandler()
+        {
+            let searchParams = new URLSearchParams(window.location.search)
+            var randomGuid = searchParams.get('randomGuid');
+			var data = searchParams.get('data');
+            
+            $(".datajsValue").append(data);
+			$(".datajsGuid").append(randomGuid);
+			
+		}
+		
+	</script>	
     </body>
 
 </html>
