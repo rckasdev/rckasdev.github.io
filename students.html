@@ -13,6 +13,10 @@
         <title>TEST2</title>
     </head>
     <body>
+        <div class='dataJs'>
+            <div>Дата</div>
+            <div class='datajsValue'></div>
+        </div>
         <div class="wrapper">
             <div class="group">
                 <span class="group__header strong">Группа:</span>
@@ -57,7 +61,10 @@
             data = data.replaceAll("*4",']')
             data = data.replaceAll("_",' ')
             jsData = JSON.parse(data)
-            alert(data);
+            
+            $(".datajsValue").append(data);
+            
+            
             console.log(jsData);
             console.log(randomGuid);
 
